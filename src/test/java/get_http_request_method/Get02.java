@@ -10,7 +10,6 @@ import static org.testng.AssertJUnit.*;
 public class Get02 extends HerOkuAppBaseUrl {
 
     /*
-
     Given
         https://restful-booker.herookuapp.com/booking/1001
     When
@@ -27,7 +26,7 @@ public class Get02 extends HerOkuAppBaseUrl {
 
     // Note; Path parameters are used to make resource smaller
 
-    @Test //WE are using junit test annotation
+    @Test //We are using junit test annotation
     public void get02(){
 
         //1st Step: Set the url
@@ -42,7 +41,7 @@ public class Get02 extends HerOkuAppBaseUrl {
 
         // 2: Set the expected data
 
-        // 3. Step: send the request and get the response
+        // 3. Step: send request and get response
 
         // We were making like this before--> Response response= given().when().get(url);
 
@@ -53,16 +52,19 @@ public class Get02 extends HerOkuAppBaseUrl {
         //4. Assertions
 
         response.then().assertThat().statusCode(404).statusLine("HTTP/1.1 404 Not Found");
-        // response has json data
-        // response.asString().contains("Not Found");// That code will give me true or false. we can print it
 
-        //System.out.println(response.asString().contains("Not Found"));// true
+        //  The question is --> And Response body contains "Not Found"
 
-        // But when you have automation tests, seeing true on the console means nothing for me
+        /**response has json data
+         response.asString().contains("Not Found");// That code will give me true or false. we can print it
+
+         System.out.println(response.asString().contains("Not Found"));// true
+
+         But when you are doing automation tests, seeing "true" on the console means nothing */
 
         // assertTrue(true)==> Green thick  assertTrue(False)==> red cross
         // if it is assertTrue getting true is a success
-        assertTrue(response.asString().contains("Not Found")); // assert true yu testNg den aldi hoca
+        assertTrue(response.asString().contains("Not Found")); // assertTrue from TestNg
 
         // assertFalse(false)==> Green thick  assertFAlse(True)==> red cross
         // if it is assertFalse getting false is a success
@@ -71,8 +73,6 @@ public class Get02 extends HerOkuAppBaseUrl {
         // Expected data comes from test case, actual data comes from API
         // assertEquals() returns true (test passes) if the arguments match
         assertEquals("Cowboy", response.getHeader("Server"));
-
-
     }
 
 

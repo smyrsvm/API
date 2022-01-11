@@ -12,10 +12,6 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
     /*
         Given
                 https://jsonplaceholder.typicode.com/todos/23
-
-                https://jsonplaceholder.typicode.com/todos/123
-
-
         When
             User sends GET request to the URL
         Then
@@ -33,6 +29,7 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
 
     @Test
     public void get03(){
+
         // 1.Set the url
         spec.pathParams("first", "todos", "second",23);
 
@@ -45,13 +42,13 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
 
         // 4.Make assertions
 
-        // NOte: Instead of usung "application/json", we can use ContentType.JSON
-        // ContentType is an enum.storage for constant variables.You will use the
+        // Note: Instead of usung "application/json", we can use ContentType.JSON
+        // ContentType is an enum. Enum is a storage for constant variables.
         // You can create like this ---> public enum enumname
-        // For example you will use the states of the USA in your application. put these in an enum
+        // For example you will use the states of the USA in your application. You can put these in an enum
 
-        // completed is boolean so we didint use double quote
-        // equalTo() method can use with every kind of data types; string, booelan, integer...very dinamic
+        // completed is boolean so we didnt use double quote
+        // equalTo() method can be used with every kind of data types; string, booelan, integer...very dinamic
 
 
         // First way
@@ -62,9 +59,11 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
                 contentType(ContentType.JSON).
                 body("title",equalTo("et itaque necessitatibus maxime molestiae qui quas velit")).
                 body("completed", equalTo(false)).
-                body("id",equalTo(2));
+                body("id",equalTo(23));
 
 
+
+        // Second way
         response.
                 then().
                 assertThat().
@@ -74,7 +73,7 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
                         "completed", equalTo(false),
                         "userId",equalTo(23));
         
-    }
 
+    }
 
 }
