@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.*;
 
 public class Get04 extends JsonPlaceHolderBaseUrl {
 
-    /**
+    /*
      * Given
      *      "https://jsonplaceholder.typicode.com/todos"
      * When

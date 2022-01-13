@@ -8,16 +8,13 @@ import static io.restassured.RestAssured.*;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class Get05 extends HerOkuAppBaseUrl {
-    /**
-     * Given
+    /*
+     Given
             "https://restful-booker.herokuapp.com/booking"
-
-     * When
+     When
            User sends a request to the Url
-
      Then
-     *      Status Code is 200
-
+          Status Code is 200
      And
         Among the data there should be someone whose first name is "Mark" and
         last name is "Ericsson"

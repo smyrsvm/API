@@ -14,7 +14,6 @@ import static org.junit.Assert.assertEquals;
 public class Get06 extends HerOkuAppBaseUrl {
 
     /*
-
         Given
             https://restful-booker.herokuapp.com/booking/5 url
         When
@@ -23,8 +22,8 @@ public class Get06 extends HerOkuAppBaseUrl {
             HTTP Status Code should be 200
         And
             response content Type is "application/json"
-
-        And response body should be like;
+        And
+            response body should be like;
 
                 {"firstname": Sally,
                 "lastname": "Smith",
@@ -36,8 +35,6 @@ public class Get06 extends HerOkuAppBaseUrl {
                      }
                 }
     */
-
-
 
     @Test
     public void get06(){
@@ -62,7 +59,7 @@ public class Get06 extends HerOkuAppBaseUrl {
                 statusCode(200).
                 contentType(ContentType.JSON).
                 body("firstname", equalTo("Mary"),
-                        "lasrname", equalTo("Jackson"),
+                        "lastname", equalTo("Jackson"),
                         "totalprice", equalTo("333"),
                         "depositpaid", equalTo(false),
                         "bookingdates.checkin",equalTo("2017-12-11"),
@@ -81,6 +78,7 @@ public class Get06 extends HerOkuAppBaseUrl {
         // Create JsonPath object from response object
 
         JsonPath json= response.jsonPath();
+
         assertEquals("First name is not matching","Mary",json.getString("firstname"));
         assertEquals("Last name is not matching","Jones",json.getString("lastname"));
         assertEquals("Total price is not matching",812,json.getInt("totalprice"));
@@ -104,34 +102,11 @@ public class Get06 extends HerOkuAppBaseUrl {
             softAssert.assertEquals(json.getBoolean("depositpaid"), true, "Deposit paid is not mstching");
 
             // iii) Do not forget to use assertAll()
-            // If you dont use assertAll() method, you will get "test passed" but actually it doesnt execute your codes
+            // If you dont use assertAll() method, your assertions arent executes
+            // and if your assertions arent executed, you will get "test passed" green thick.it is dangerous
             softAssert.assertAll();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
 
 }
