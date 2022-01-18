@@ -31,6 +31,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
 
     @Test
     public void get07(){
+
         //1-Set the url
 
         spec.pathParam("first", "todos");
@@ -71,7 +72,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
          Collections.sort(userIdList);// Elements are sorted in ascending order
 
         //assertEquals("",4,userIdList.get(userIdList.size()-1));
-        // It is wron when we write it like above. Because assertEquals works with Object, Object
+        // It is wrong when we write it like above. Because assertEquals works with Object, Object
         //Actual value is Integer, and expected value of 4 is accepted as Object; so it complains.
         // Then we should convert that to Integer.Explicit casting we are making
 

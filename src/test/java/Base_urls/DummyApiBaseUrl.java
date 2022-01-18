@@ -13,6 +13,10 @@ public class DummyApiBaseUrl {
     public void setUp() {
 
         spec= new RequestSpecBuilder().setBaseUri("http://dummy.restapiexample.com").build();
+
+
+
+
     }
 
 

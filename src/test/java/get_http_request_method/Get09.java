@@ -60,7 +60,7 @@ public class Get09 extends HerOkuAppBaseUrl {
         Response response= given().spec(spec).when().get("/{first}/{second}");
         response.prettyPrint();
 
-        Map<String,Object> actualData= response.as(HashMap.class);// De-seriaöization; converting Json data to JAva(Object) through GSON
+        Map<String,Object> actualData= response.as(HashMap.class);// De-serialization; converting Json data to JAva(Object) through GSON
         System.out.println(actualData);
 
         // 4th: Make assertions
@@ -72,14 +72,30 @@ public class Get09 extends HerOkuAppBaseUrl {
         assertEquals(expectedData.get("additionalneeds"),actualData.get("additionalneeds"));
 
 
-        // Below is our actualData Map. Below bookingdates key seems to have a varible with the data type Map.
-        // But indeed it is an Object not a Map.Examine below
+        /** Our actualData as Map is below. Our Map`s key--> String value---> Object */
+        // We set it like it before, can be seen below
+        // Map<String,Object> actualData= response.as(HashMap.class)
         // {firstname=Jim, additionalneeds=Breakfast, bookingdates={checkin=2019-09-29, checkout=2020-05-08},
         // totalprice=391, depositpaid=false, lastname=Smith}
+        // Bookingdates key seems to have a varible like Map data type.
+        // But indeed it is an Object not a Map.
+
         // Because The values of our actualData Map are Object.We set it like it before.
+
         // So we have to convert this Object to a map by Data Casting below.
 
         assertEquals(expectedBookingDates.get("checkin"),(Map)actualData.get("bookingdates"));
+
+
+
+
+
+
+
+
+
+
+
 
 
 
