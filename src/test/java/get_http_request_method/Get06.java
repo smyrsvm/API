@@ -102,7 +102,7 @@ public class Get06 extends HerOkuAppBaseUrl {
             softAssert.assertEquals(json.getBoolean("depositpaid"), true, "Deposit paid is not mstching");
 
             // iii) Do not forget to use assertAll()
-            // If you dont use assertAll() method, your assertions arent executes
+            // If you dont use assertAll() method, your assertions are not executed
             // and if your assertions arent executed, you will get "test passed" green thick.it is dangerous
             softAssert.assertAll();
 

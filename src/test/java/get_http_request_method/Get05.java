@@ -28,6 +28,7 @@ public class Get05 extends HerOkuAppBaseUrl {
 
         // In pathparam; parameter name can be anything
         // In queryparam you cannot change key and values
+
         spec.
                 pathParam("firstparameter","booking").
                 queryParams("firstname","Mary","lastname","Ericsson");
@@ -36,7 +37,7 @@ public class Get05 extends HerOkuAppBaseUrl {
 
         //3rd Step: Send request, get response
 
-        // We should just add the pathparam, we dont need to add something for queryparam
+        // We should just add the pathparam, we do not need to add something for queryparam
 
          Response response=  given().spec(spec).when().get("/{firstparameter}");
          response.prettyPrint();

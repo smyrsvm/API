@@ -42,13 +42,13 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
 
         // 4.Make assertions
 
-        // Note: Instead of usung "application/json", we can use ContentType.JSON
+        // Note: Instead of using "application/json", we can use ContentType.JSON
         // ContentType is an enum. Enum is a storage for constant variables.
-        // You can create like this ---> public enum enumname
+        // You can create like this ---> public enum enumName
         // For example you will use the states of the USA in your application. You can put these in an enum
 
-        // completed is boolean so we didnt use double quote
-        // equalTo() method can be used with every kind of data types; string, booelan, integer...very dinamic
+        // completed is boolean, so we did not use double quote
+        // equalTo() method can be used with every kind of data types; string, boolean, integer...very dynamic
 
 
         // First way

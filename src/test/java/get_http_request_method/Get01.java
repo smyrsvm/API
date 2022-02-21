@@ -53,7 +53,7 @@ public class Get01 {
         response.prettyPrint(); //We print response body
 
         // 4) Make assertions
-        // If you have multiple errors in assertions, executions will be stopped in the first error. Nexx codes will not be executed.
+        // If you have multiple errors in assertions, executions will be stopped in the first error. Next codes will not be executed.
         // You will not get any error messages about the second, third etc. errors.
         // That kind of assertions are called "Hard assertions"
         // In soft assertions(Verification) all codes will be executed and you will get report for all assertions

@@ -13,11 +13,11 @@ import static org.junit.Assert.assertEquals;
 public class Get08 extends JsonPlaceHolderBaseUrl {
 
     /*
-    The biggest challange in Api Testing is data types
+    The biggest challenge in Api Testing is data types
 
-    1) Java uses Objects and Primitives as data type, API uses XML, Json etc
-       Java and API are using data types but they shoul commuicate each other
-       Communication is not possible with different data types
+    1) Java uses Objects and Primitives as data type,
+       API uses XML, Json etc.
+       They should communicate each other but communication is not possible with different data types
 
        We have two options
        i) Convert json to Java Object==> De-Serialization
@@ -67,11 +67,11 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
         //2. Set the expected data
 
         // When we want to convert json data to java data we prefer Maps.
-        // Beause maps also have key value format like json data
+        // Because maps also have key value format like json data
         // The first part of Map below is String, second part have different data types so we make it Object
 
-        // The data comes from test case is expecteddata, and the data comes from API is actual data
-        // Expected data was in json format, below i converted it to the java object
+        // The data comes from test case is expectedData, and the data comes from API is actual data
+        // Expected data is in json format, below i converted it to the java object
 
         Map<String,Object> expectedData= new HashMap<>();
 

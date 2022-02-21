@@ -55,7 +55,7 @@ public class Get02 extends HerOkuAppBaseUrl {
 
         //  The question is --> And Response body contains "Not Found"
 
-        /**response has json data
+        /** response has json data
          response.asString().contains("Not Found");// That code will give me true or false. we can print it
 
          System.out.println(response.asString().contains("Not Found"));// true
@@ -66,7 +66,7 @@ public class Get02 extends HerOkuAppBaseUrl {
         // if it is assertTrue getting true is a success
         assertTrue(response.asString().contains("Not Found")); // assertTrue from TestNg
 
-        // assertFalse(false)==> Green thick  assertFAlse(True)==> red cross
+        // assertFalse(false)==> Green thick  assertFalse(True)==> red cross
         // if it is assertFalse getting false is a success
         assertFalse(response.asString().contains("TechProed")); // Green Thick
 

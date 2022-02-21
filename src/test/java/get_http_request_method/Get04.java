@@ -43,7 +43,7 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
 
         // When accept type is not a prerequisite, we did like--> given().spec(spec).when().get("/{first}/{second}");
 
-       Response response= given().spec(spec).accept(ContentType.JSON).when().get("/{firstparameter}");
+       Response response = given().spec(spec).accept(ContentType.JSON).when().get("/{firstparameter}");
        response.prettyPrint();
 
        //4th Step: Make the assertions

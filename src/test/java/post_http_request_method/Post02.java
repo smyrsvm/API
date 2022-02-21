@@ -1,12 +1,16 @@
 package post_http_request_method;
 
 import Base_urls.JsonPlaceHolderBaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.Test;
+import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class Post02 extends JsonPlaceHolderBaseUrl {
 
@@ -36,53 +40,47 @@ public class Post02 extends JsonPlaceHolderBaseUrl {
     @Test
     public void post02(){
 
-        // 1st: Set the url
+        //1st Step: Set the url
 
-        spec.pathParam("firstparameter","todos");
+        spec.pathParams("firstparameter","todos");
 
-        // 2nd: Set the expected data
+        //2nd Step: Set the expected data
 
-        Map<String,Object> expectedData= new HashMap<>();
-        expectedData.put("userId",55);
-        expectedData.put("title","Tidy your room");
-        expectedData.put("completed",false);
-        expectedData.put("StatusCode",201);
-        System.out.println(expectedData);
+        // 201 is for POST request ---new data created successfully
 
-        // 3rd: Send request and get response
-
-        given().spec(spec)
+        // I should not put test data to the testing area
+        // so we separated data from test method
+        JsonPlaceHolderTestData expectedData= new JsonPlaceHolderTestData();
+        Map<String,Object>expectedDataMap=  expectedData.expectedDataSetUp();
 
 
+        // 3rd Step: Send the request get the response
 
+        Response response=given().
+                                    spec(spec).
+                                    auth().basic("admin","1234").
+                                    contentType(ContentType.JSON).
+                                    body(expectedDataMap).
+                            when().
+                                    post("/{firstparameter}");
+        response.prettyPrint();
 
+        // I added StatusCode to use in assertions
 
+        expectedDataMap.put("StatusCode",201);
 
-        // 4th: Make assertions
+        // 4th Step: Make assertions
 
+        Map <String, Object> actualData= response.as(HashMap.class);
+        System.out.println(actualData);
 
-
-
-
-
-
-
-
-
+        assertEquals(expectedDataMap.get("StatusCode"), response.getStatusCode());
+        assertEquals(expectedDataMap.get("userId"), actualData.get("userId"));
+        assertEquals(expectedDataMap.get("title"), actualData.get("title"));
+        assertEquals(expectedDataMap.get("completed"), actualData.get("completed"));
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+

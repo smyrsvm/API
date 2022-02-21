@@ -54,9 +54,9 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
 
         // it.id --> like---> this.name
         // this--> means from the class which you are in, get the name variable
-        // constructor this has paranthesis.
+        // "this" which is a constructor has parenthesis.
         //???? it.id--> from the Json Data which we are working in, look at the ids.If ids are greater than 190 take the data
-        // In Java it is used "this", in Groocy it is used "it".
+        // In Java it is used "this", in Groovy it is used "it".
 
         System.out.println(idList); // [191,192,193....200]
 
@@ -88,7 +88,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         // 1st way:
         assertTrue(titlesList.contains("delectus aut autem"));
 
-        //2. Way: LAmbda is used with Collections
+        //2. Way: Lambda is used with Collections
         assertTrue(titlesList.stream().anyMatch(t->t.equals("delectus aut autem")));  ;
 
     }

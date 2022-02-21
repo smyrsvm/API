@@ -79,8 +79,8 @@ public class Get09 extends HerOkuAppBaseUrl {
         // {firstname=Jim, additionalneeds=Breakfast, bookingdates={checkin=2019-09-29, checkout=2020-05-08},
         // totalprice=391, depositpaid=false, lastname=Smith}
 
-        // Bookingdates` value seems to have a varible like Map data type.
-        // But indeed it is an Object not a Map, cause we set it like it before.
+        // Bookingdates` value seems to have a variable like Map data type.
+        // But indeed it is an Object not a Map, because we set it like it before.
 
         // So we have to convert this Object to a map by Explicit Type Casting below.
 
@@ -89,8 +89,6 @@ public class Get09 extends HerOkuAppBaseUrl {
 
         assertEquals(expectedBookingDates.get("checkin"),((Map)actualData.get("bookingdates")).get("checkin"));
         assertEquals(expectedBookingDates.get("checkout"),((Map)actualData.get("bookingdates")).get("checkout"));
-
-
 
 
     }
