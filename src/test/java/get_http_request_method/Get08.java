@@ -20,7 +20,7 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
        They should communicate each other but communication is not possible with different data types
 
        We have two options
-       i) Convert json to Java Object==> De-Serialization
+       i) Convert json to Java Object==> De-Serialization -->we will mostly use this in getting json from API and using it in JAVA
        ii) Convert Java Object to Json==> Serialization
 
        For Serialization and De-Serialization, we have 2 options

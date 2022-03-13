@@ -75,6 +75,9 @@ public class Post01 extends HerOkuAppBaseUrl {
         // When posting request, some APIs want also the contentType, like API of HerOkuApp.
         // It depends on the API structure. These are all written in Swagger Documentations.
 
+        // With "get" we do like below
+        //Response response= given().spec(spec).when().get("/{first}/{second}");
+
         Response response=given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().post("/{firstparameter}");
         response.prettyPrint();
 

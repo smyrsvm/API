@@ -109,17 +109,17 @@ public class Post03 extends AgroMonitoringApiBaseUrl {
 
         //Add more key-values into the request body
         requestBodyMap.put("area",190.9484);
-        requestBodyMap.put("area",190.9484);
 
         // Use GSON to convert response(Json) to a Map
 
         Map<String,Object> responseBody= response.as(HashMap.class);
-        System.out.println(requestBody);
+        System.out.println(responseBody);
 
         //4th Step: Make assertions
 
         assertEquals(requestBodyMap.get("area"),responseBody.get("area"));
         assertEquals(requestBodyMap.get("name"),responseBody.get("name"));
+        //We used the method geometrySetUp() and it returns the map and we could use get() method.
         assertEquals(requestBody.geometrySetUp().get("type"),  ((Map)((Map)responseBody.get("geo_json")).get("geometry")).get("type"));
         assertEquals(String.valueOf(requestBody.coordinates[0][1][0]), ((Map)((Map)responseBody.get("geo_json")).get("geometry")).get("coordinates").toString().substring(25,34));
 

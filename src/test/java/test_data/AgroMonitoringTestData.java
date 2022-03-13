@@ -5,30 +5,29 @@ import java.util.Map;
 
 public class AgroMonitoringTestData {
 
-    public float coordinates[][][]= { {  {-121.1958f,37.6683f},
-                                        {-121.1779f,37.6687f},
-                                        {-121.1773f,37.6792f},
-                                        {-121.1958f,37.6792f},
-                                        {-121.1958f,37.6683f}  }};
+    // There is a multidimensional array_ 3 dimensions
+
+    public float coordinates[][][]= { {  {-121.1958f,37.6683f}, {-121.1779f,37.6687f}, {-121.1773f,37.6792f}, {-121.1958f,37.6792f}, {-121.1958f,37.6683f}  }};
 
 
-public Map<String,Object>geometrySetUp(){
+    public Map<String,Object>geometrySetUp(){
 
-    Map<String,Object> geometry= new HashMap<>();
-    geometry.put("type","Polygon");
-    geometry.put("coordinates",coordinates);
-    return  geometry;
+        Map<String,Object> geometry= new HashMap<>();
+        geometry.put("type","Polygon");
+        geometry.put("coordinates",coordinates);
+        return  geometry;
 
 }
 
-Map<String,Object>properties= new HashMap<>();
+    // Empty json means empty map
+    Map<String,Object>properties= new HashMap<>();
 
     public Map<String,Object>geo_jsonSetUp(){
 
         Map<String,Object> geo_json= new HashMap<>();
         geo_json.put("type","Feature");
         geo_json.put("properties",properties);
-        geo_json.put("geometry",geometrySetUp());
+        geo_json.put("geometry",geometrySetUp()); // Here we are used the method we created above "geometrySetUp()".It returns map.
         return  geo_json;
 
     }
@@ -42,13 +41,6 @@ Map<String,Object>properties= new HashMap<>();
         return  requestBody;
 
     }
-
-
-
-
-
-
-
 
 
 }

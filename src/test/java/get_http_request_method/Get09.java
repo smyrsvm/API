@@ -55,12 +55,12 @@ public class Get09 extends HerOkuAppBaseUrl {
         expectedData.put("additionalneeds","additionalneeds");
         System.out.println(expectedData);
 
-        //3rd: send request and get response
+        //3rd: Send request and get response
 
         Response response= given().spec(spec).when().get("/{first}/{second}");
         response.prettyPrint();
 
-        Map<String,Object> actualData= response.as(HashMap.class);// De-serialization; converting Json data to JAva(Object) through GSON
+        Map<String,Object> actualData= response.as(HashMap.class);// De-serialization; converting Json data to Java(Object) through GSON
         System.out.println(actualData);
 
         // 4th: Make assertions
@@ -84,7 +84,7 @@ public class Get09 extends HerOkuAppBaseUrl {
 
         // So we have to convert this Object to a map by Explicit Type Casting below.
 
-        //actualData.get("bookingdates")--> it is Object. To be able to use get() method, i have to
+        //actualData.get("bookingdates")--> it is an Object. To be able to use get() method, i have to
         // convert it to Map.Because this method comes with Map.
 
         assertEquals(expectedBookingDates.get("checkin"),((Map)actualData.get("bookingdates")).get("checkin"));
