@@ -126,13 +126,14 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
         // 4th Step: Do the assertions
 
         //Note: After creating new data in Database, you will need "bookingid" to be able to use GET Method
-        // So you need to
+        // So you need to get "bookingid" from the response of post request.
 
         JsonPath json= response1.jsonPath();
         Integer bookingId=json.getInt("bookingid");
         System.out.println(bookingId);
 
         // Set the url for GET Request
+        // For get request we need two parameters
 
         spec.pathParams("first","booking","second",bookingId);
 
@@ -142,7 +143,12 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
         response2.prettyPrint();
 
         //Do the assertion
+
+        // We use here GET response body
+        // Convert response2 to POJO. GET response format is BookingPojo format
+
         BookingPojo actualData = response2.as(BookingPojo.class);
+
         assertEquals(200,response2.getStatusCode());
         assertEquals(requestBody.getFirstname(),actualData.getFirstname());
         assertEquals(requestBody.getLastname(),actualData.getLastname());

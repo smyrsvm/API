@@ -12,7 +12,8 @@ public class JsonPlaceHolderPojo {
 
     // Pojos will help me like setUpMethods
     // With setUpMethods we are creating maps
-    // By pojo class constructors i will crate pojo objects and i will use them in expected and actual data
+    // By pojo class constructors i will crate pojo objects and
+    // i will use them in expected and actual data
 
 
 
