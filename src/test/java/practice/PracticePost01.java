@@ -50,22 +50,36 @@ public class PracticePost01 extends JsonPlaceHolderBaseUrl {
 
         spec.pathParam("firstparameter", "comments");
 
-        Comment requestBody= new Comment(85,501,"This class has smart people","techproedstudents@gmail.com","Congratulations Everyone");
+        // Comment requestBody= new Comment(85,501,"This class has smart people","techproedstudents@gmail.com","Congratulations Everyone");
+        // System.out.println(requestBody);
 
-        System.out.println(requestBody);
+        Comment requestBody = new Comment();
+        requestBody.setName("This class has smart people");
+        requestBody.setPostId(85);
+        requestBody.setId(501);
+        requestBody.setBody("Congratulations Everyone");
+        requestBody.setEmail("techproedstudents@gmail.com");
 
         Response response=given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{firstparameter}");
-
         response.prettyPrint();
+
+        response.then().assertThat().statusCode(201);
 
         Comment actualData=response.as(Comment.class);
         System.out.println(actualData);
 
-        assertEquals(requestBody.getPostId(),actualData.getPostId());
+        System.out.println("Name :"+ actualData.getName());
+        System.out.println("Id :"+ actualData.getId());
+        System.out.println("email :"+ actualData.getEmail());
+        System.out.println("postId :"+ actualData.getPostId());
+        System.out.println("Body :"+ actualData.getBody());
+
+
         assertEquals(requestBody.getId(),actualData.getId());
-        assertEquals(requestBody.getName(),actualData.getName());
-        assertEquals(requestBody.getEmail(),actualData.getEmail());
+        assertEquals(requestBody.getPostId(),actualData.getPostId());
         assertEquals(requestBody.getBody(),actualData.getBody());
+        assertEquals(requestBody.getEmail(),actualData.getEmail());
+        assertEquals(requestBody.getName(),actualData.getName());
 
     }
 
