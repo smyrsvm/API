@@ -60,6 +60,7 @@ public class put01 extends JsonPlaceHolderBaseUrl {
 
         //1st Way:
         // We used response body...
+
         response.
                 then().
                 assertThat().
@@ -97,8 +98,6 @@ public class put01 extends JsonPlaceHolderBaseUrl {
 
         System.out.println(jsonFromMap); //{"Mary Star":65,"Ayse Kan":21,"Ali Can":13,"Veli Han":15}
         //It is now json; there is double quote and colon(iki nokta ustuste)
-
-
 
 
     }

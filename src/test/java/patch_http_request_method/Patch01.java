@@ -80,40 +80,6 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
 
         assertEquals(expectedDataMap.get("userId"),actualDataMap.get("userId"));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

@@ -70,8 +70,6 @@ public class Get01 {
         System.out.println("Headers are \n" +response.getHeaders()); // all headers
         System.out.println("Via is " +response.getHeader("Via")); // with the key will give the value of the header
 
-
-
     }
 
 

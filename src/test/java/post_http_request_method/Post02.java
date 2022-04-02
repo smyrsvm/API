@@ -52,16 +52,17 @@ public class Post02 extends JsonPlaceHolderBaseUrl {
         // so we separated data from test method
         // We made another package named "test_data"
 
-
-        // I created an object from testdata class and with that object i reached to the method there.
+        // I created an object from testdata class and
+        // with that object i reached to the method there.
         // These method returns a map, and i put this map to expec†edDataMap
+
         JsonPlaceHolderTestData expectedData= new JsonPlaceHolderTestData();
         Map<String,Object>expectedDataMap=  expectedData.expectedDataSetUpWithAllKeys(55,"Tidy your room",false);
 
 
         // 3rd Step: Send the request get the response
 
-        // If you do not write contentType(ContentType.JSON), sometimes it gives error sometimes it hides data.
+        // If you do not write contentType(ContentType.JSON), sometimes it gives error, sometimes it hides data.
         // It is all written in Swagger Documentation
 
         Response response=given().

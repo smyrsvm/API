@@ -72,7 +72,7 @@ public class Get09 extends HerOkuAppBaseUrl {
         assertEquals(expectedData.get("additionalneeds"),actualData.get("additionalneeds"));
 
 
-        /** Our actualData as Map is below. In our Map keys` data type are String, values` data type are Object */
+        /** Our actualData as Map is below. In our Map keys` data type are String, values` data types are Object */
 
         // Map<String,Object> actualData= response.as(HashMap.class)
 
@@ -85,13 +85,12 @@ public class Get09 extends HerOkuAppBaseUrl {
         // So we have to convert this Object to a map by Explicit Type Casting below.
 
         //actualData.get("bookingdates")--> it is an Object. To be able to use get() method, i have to
-        // convert it to Map.Because this method comes with Map.
+        // convert it to Map. Because this method comes with Map.
 
         assertEquals(expectedBookingDates.get("checkin"),((Map)actualData.get("bookingdates")).get("checkin"));
         assertEquals(expectedBookingDates.get("checkout"),((Map)actualData.get("bookingdates")).get("checkout"));
 
 
     }
-
 
 }

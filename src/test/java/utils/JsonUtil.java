@@ -40,9 +40,13 @@ public class JsonUtil {
     // This is called a generic method that works with every kind of data type
     // For example equalTo() works with integer, boolean and String. It is a generic method.
 
-    //This method will give me a java object, so i must put it to a container, variable
-    // Why did not we type Object? Object is general class but i need
+    // This method will give me a java object, so i must put it into a container, variable
+    // Why did not we type Object? Object is general class but i need specific class to return that method.
+    // When i used this method, I should decide which Java Object will i turn this Json data;
+    // to a Hashmap or Set or pojo so i declared it
+
     public static <T> T convertJsonToJava(String json, Class<T> cls)  {
+
         T javaResult=null;
 
         try {
@@ -50,32 +54,26 @@ public class JsonUtil {
         } catch (IOException e) {
             System.out.println("Json could not be converted to Java Object"+ e.getMessage());
         }
-
         return javaResult;
-    }
 
+    }
 
     // 2nd Method: It is used to convert Java Object to JsonDAta. Serialization Method
     // everytime we want to get json so no need to make the method generic.
-    // we could make it String data type
+    // we could make it String data type.No need to make selection it is json all Json
 
     public static String convertJavaToJson(Object obj){
 
+        String jsonResult =null; // It is a local variable.Local variables can not be used without initialization.
+                                 // If it were an instance variable, no need to do assignment.
+
+        try {
+            jsonResult=mapper.writeValueAsString(obj);
+        } catch (IOException e) {
+            System.out.println("Java Object could not be converted to Json"+ e.getMessage());
+        }
+        return jsonResult;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

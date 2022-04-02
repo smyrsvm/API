@@ -71,7 +71,7 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
         // The first part of Map below is String, second part have different data types so we make it Object
 
         // The data comes from test case is expectedData, and the data comes from API is actual data
-        // Expected data is in json format, below i converted it to the java object
+
 
         Map<String,Object> expectedData= new HashMap<>();
 

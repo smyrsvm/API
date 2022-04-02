@@ -73,7 +73,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
 
         //assertEquals("",4,userIdList.get(userIdList.size()-1));
         // It is wrong when we write it like above. Because assertEquals works with Object, Object
-        //Actual value is Integer, and expected value of 4 is accepted as Object; so it complains.
+        //Actual value is integer, and expected value of 4 is accepted as Object; so it complains.
         // Then we should convert that to Integer.Explicit casting we are making
 
         assertEquals("",(Integer)4,userIdList.get(userIdList.size()-1));

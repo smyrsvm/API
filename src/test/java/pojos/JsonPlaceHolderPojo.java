@@ -12,10 +12,8 @@ public class JsonPlaceHolderPojo {
 
     // Pojos will help me like setUpMethods
     // With setUpMethods we are creating maps
-    // By pojo class constructors i will crate pojo objects and
-    // i will use them in expected and actual data
-
-
+    // By pojo class constructors I will create pojo objects,
+    // and I will use them in expected and actual data
 
     // Create private variables
 
@@ -24,7 +22,6 @@ public class JsonPlaceHolderPojo {
     private Boolean completed;
 
     // Create constructors
-
 
     public JsonPlaceHolderPojo(Integer userID, String title, Boolean completed) {
         this.userID = userID;

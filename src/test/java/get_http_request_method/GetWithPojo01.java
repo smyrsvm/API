@@ -53,9 +53,8 @@ public class GetWithPojo01 extends HerOkuAppBaseUrl {
 
         //4th Step: Do assertions
 
-        BookingPojo actualData=response.as(BookingPojo.class);
+        BookingPojo actualData= response.as(BookingPojo.class);
         System.out.println(actualData);
-
 
         assertEquals(200,response.getStatusCode());
         assertEquals("First Names are not matching",expectedData.getFirstname(),actualData.getFirstname());
@@ -69,7 +68,9 @@ public class GetWithPojo01 extends HerOkuAppBaseUrl {
 
     }
 
-    // While you are working, dont use sout, prettyPrint and blanks.Push like below
+    // While you are working in real life, dont use sout, prettyPrint and blanks.Push like below
+    //The blanks etc. use memory
+
     @Test
     public void GetWithPojo02 (){
         spec.pathParams("firstparameter","booking","secondparameter",2);

@@ -26,12 +26,12 @@ public class Get02 extends HerOkuAppBaseUrl {
 
     // Note; Path parameters are used to make resource smaller
 
-    @Test //We are using junit test annotation
+    @Test //We are using Junit test annotation
     public void get02(){
 
         //1st Step: Set the url
 
-       // String url="https://restful-booker.herookuapp.com/booking/1001"; --> Not recommended
+        // String url="https://restful-booker.herookuapp.com/booking/1001"; --> Not recommended
 
         // https://restful-booker.herookuapp.com ---> is in spec object
         // The others are path parameters. We have 2 path parameters

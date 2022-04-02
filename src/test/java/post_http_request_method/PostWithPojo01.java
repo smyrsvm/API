@@ -22,6 +22,7 @@ public class PostWithPojo01 extends JsonPlaceHolderBaseUrl {
                 "title": "Tidy your room",
                 "completed": false,
                 }
+
        When
            User sends POST request to the Url
         Then
