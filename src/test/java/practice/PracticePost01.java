@@ -25,15 +25,12 @@ public class PracticePost01 extends JsonPlaceHolderBaseUrl {
                 "body": "Congratulations Everyone",
                 "email": "techproedstudents@gmail.com"
                 }
-
        When
             User sends Post Request to the URL
-
        Then
             The Status Code should be 201
 
             Response should be like
-
                  {
                 "name": "This class has smart people";
                 "postId": 85,
@@ -41,8 +38,6 @@ public class PracticePost01 extends JsonPlaceHolderBaseUrl {
                 "body": "Congratulations Everyone",
                 "email": "techproedstudents@gmail.com"
                 }
-
-
      */
 
     @Test

@@ -57,11 +57,11 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
     public void postWithPojo02 (){
 
         // If the response structure is different from request structure
-        // 1. Create new Pojo for response. we did it in this test method
-        // 2. This second way, we did in the other below method numbered as 3.
+        // 1. First way; creating new Pojo for response. we did it in this test method
+        // 2. This second way, we did in below method numbered as 3.
         // It is --> Using GET request if we are sure that Get response data structure is
         // same with the post request data structure. How could we be sure of that? --> By Postman
-        // But to be able to use GET request, I need bookingid.How could I get it?--> By using JsonPath
+        // But to be able to use GET request, I need bookingid. How could I get it?--> By using JsonPath
         // I get it with JsonPath and use in GET request.
 
         // 1st Step: Set the url
@@ -73,15 +73,16 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
         BookingDatesPojo bookingDates= new BookingDatesPojo("2016-02-05","2021-01-16");
         BookingPojo requestBody= new BookingPojo("Suleyman","Alptekin",999,true,bookingDates,"Breakfast with white tea, Dragon juice");
         System.out.println(requestBody);
-        // 3rd Step; Sen the request and get response
 
-        // After given() to when() spec, contentType, body are => prerequisities,
+        // 3rd Step; Send request and get response
+
+        // After given() to when() --> spec, contentType, body are => prerequisities,
         // With when() starts action :)
 
         Response response= given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{first}");
         response.prettyPrint();
 
-        // 4 th Step; Do the assertions
+        // 4th Step; Do the assertions
 
         //Convert response body to Pojo by using GSON
         BookingPostResponseBodyPojo actualData= response.as(BookingPostResponseBodyPojo.class);
@@ -95,8 +96,6 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
         assertEquals(requestBody.getBookingdates().getCheckin(),actualData.getBooking().getBookingdates().getCheckin());
         assertEquals(requestBody.getBookingdates().getCheckout(),actualData.getBooking().getBookingdates().getCheckout());
         assertEquals(requestBody.getAdditionalneeds(), actualData.getBooking().getAdditionalneeds());
-
-
     }
 
 
@@ -115,10 +114,7 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
         BookingPojo requestBody= new BookingPojo("Suleyman","Alptekin",999,true,bookingDates,"Breakfast with white tea, Dragon juice");
         System.out.println(requestBody);
 
-        // 3rd Step; Sen the request and get response
-
-        // After given() to when() spec, contentType, body are => prerequisities,
-        // With when() starts action :)
+        // 3rd Step: Send request and get response
 
         Response response1= given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{first}");
         response1.prettyPrint();
@@ -158,6 +154,5 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
         assertEquals(requestBody.getBookingdates().getCheckout(),actualData.getBookingdates().getCheckout());
         assertEquals(requestBody.getAdditionalneeds(),actualData.getAdditionalneeds());
     }
-
 
 }

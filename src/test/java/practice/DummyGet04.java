@@ -13,7 +13,7 @@ public class DummyGet04 extends DummyApiBaseUrl {
      *  Given
      *      "http://dummy.restapiexample.com/api/v1/employee"
      *  When
-     *      User sends a request to the url
+     *      User sends a get request to the url
      *  Then
      *      HTTP Status Code should be 200
      *  And
@@ -54,7 +54,6 @@ public class DummyGet04 extends DummyApiBaseUrl {
                         "data.employee_salary",equalTo(162700),
                         "data.employee_age",equalTo(33),
                         "message",equalTo("Successfully! Record has been fetched."));
-
 
     }
 

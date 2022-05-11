@@ -1,4 +1,4 @@
-/* package get_http_request_method;
+/** package get_http_request_method;
 
 import Base_urls.HerOkuAppBaseUrl;
 import io.cucumber.java.hu.Ha;

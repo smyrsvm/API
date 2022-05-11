@@ -27,6 +27,7 @@ public class DummyGet03 extends DummyApiBaseUrl {
      */
     @Test
     public void test03 (){
+
         // 1) Set the Url
         spec.pathParams("firstparameter", "api","secondparameter","v1","thirdparameter","employees");
 

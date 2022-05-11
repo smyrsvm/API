@@ -48,7 +48,7 @@ public class GetWithObjectMapper01 extends JsonPlaceHolderBaseUrl {
                         "\"id \":198\n" +
                         "}";
                 HashMap<String,Object>  expectedDataMap=JsonUtil.convertJsonToJava(expectedData, HashMap.class);
-                 */
+                 For the second parameter HashMap.class we could also write Pojo class */
 
             // We put our json data in double quotes. The thing which you put in double quotes is String.
             // We use String because my objectMapper method(convertJsonToJava) uses String.
@@ -65,6 +65,7 @@ public class GetWithObjectMapper01 extends JsonPlaceHolderBaseUrl {
 
              Response response= given().spec(spec).when().get("/{firstparameter}/{secondparameter}");
              response.prettyPrint();
+
 
              HashMap<String,Object> actualDataMap=JsonUtil.convertJsonToJava(response.asString(),HashMap.class);
              System.out.println(actualDataMap);

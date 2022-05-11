@@ -35,9 +35,10 @@ public class PostDeleteWithPojo03 extends JsonPlaceHolderBaseUrl {
     @Test
     public void postDeleteWithPojo03 (){
 
-        // You can run this test method hundred times.With delete Http request you are deleting every time
-        // you created the data with post request; preventing the database unnecessarily full
-        // When you use Post, do not forget to delete it
+        // You can run this test method hundred times,
+        // because with delete http request you are deleting every time what you created before
+        // So preventing the database unnecessarily full, after creating the data with post request;
+        // do not forget to delete it
 
         // 1st Step: Set the url
 
@@ -55,10 +56,10 @@ public class PostDeleteWithPojo03 extends JsonPlaceHolderBaseUrl {
         //After creating the data with post, you can do the assertions or whatever you want here
         //Then you can delete with the below written codes
 
-        // Note:Response body has "id", I need "id" value to use "delete()".
+        // Note: Response body has "id", I need "id" value to use "delete()".
         // So I should get "id" value from response body
         // Get the id of newly created data.
-        // With JsonPath we can navigate inside the json Data.So we create a JsonPath object.
+        // With JsonPath we can navigate inside the json Data. So we create a JsonPath object.
         // In every post creation, there could be a new "id".So we made it dynamic.
 
         JsonPath json= response.jsonPath();
@@ -71,10 +72,9 @@ public class PostDeleteWithPojo03 extends JsonPlaceHolderBaseUrl {
         Response response2=given().spec(spec).when().delete("/{firstparameter}/{secondparameter}");
         response2.prettyPrint(); // {}
 
-        // Convert response to a Map.We do not need to create a POJO.
+        // Convert response to a Map. We do not need to create a POJO.
         // Because it is an empty Json.There is no variable.There will be no getters and setters.
         // There is no data to print on the console.
-
 
         Map<String,Object> response2Map=response2.as(HashMap.class);
         // We converted empty Json to a Map to be able to use Map methods
@@ -85,18 +85,7 @@ public class PostDeleteWithPojo03 extends JsonPlaceHolderBaseUrl {
         assertTrue(response2Map.isEmpty());
 
 
-
-
     }
-
-
-
-
-
-
-
-
-
 
 
 }

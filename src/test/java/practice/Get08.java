@@ -84,13 +84,12 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
            for (int i=0; i<comment.length;i++) {
                if (comment[i].getId()<30) {
                    count++;
+                   System.out.println(i+ " id "+ comment[i].getId());
                }
-               System.out.println(i+ "id "+ comment[i].getId());
 
            }
 
        Assert.assertTrue(count==29);
-
 
     }
 

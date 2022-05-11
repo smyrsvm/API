@@ -24,7 +24,6 @@ public class DummyGet07 extends DummyApiBaseUrl {
      *And
          Make sure Rhona Davidson earns more than Herrod Chandler
 
-
      *                 {
      *             "id": ,7
      *             "employee_name": "Herrod Chandler",
@@ -45,6 +44,7 @@ public class DummyGet07 extends DummyApiBaseUrl {
 
     @Test
     public void get07 (){
+
         // This is another way.We get all the employees data.
         // This is not a preferred way.
         //Response response = RestAssured.get("http://dummy.restapiexample.com/api/v1/employees");
@@ -64,23 +64,9 @@ public class DummyGet07 extends DummyApiBaseUrl {
        JsonPath json2= response2.jsonPath();
        System.out.println("person2`s salary: "+ json2.getInt("data.employee_salary"));
 
-
         Assert.assertTrue("The expected data does not match actual data!!",json.getInt("data.employee_salary")<json2.getInt("data.employee_salary"));
         Assert.assertTrue("The expected data does not match actual data!!", Integer.parseInt(json.getString("data.employee_salary"))<(Integer.parseInt(json2.getString("data.employee_salary"))) );
 
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
 
 }

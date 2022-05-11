@@ -14,14 +14,14 @@ import static org.hamcrest.Matchers.hasItems;
 public class Get09 extends JsonPlaceHolderBaseUrl {
 
     // Given
-    //        "https://jsonplaceholder.typicode.com/comments"
+    //      "https://jsonplaceholder.typicode.com/comments"
     // When
-    //         I send a GET request to the Url
+    //     I send a GET request to the Url
     // Then
-    //         HTTP Status Code should be 200
+    //     HTTP Status Code should be 200
     // And
-    //         User can see following emails in the system
-    //          Zola@lizzie.com, Dolly@mandy.co.uk and Davidon@eldora.net
+    //     User can see following emails in the system
+    //     Zola@lizzie.com, Dolly@mandy.co.uk and Davidon@eldora.net
 
 
     @Test

@@ -27,6 +27,7 @@ public class DummyGet01 extends DummyApiBaseUrl {
 
     @Test
     public void test01 (){
+
         spec.pathParams("firstparameter", "api","secondparameter","v1","thirdparameter","employees");
 
         Response response =given().spec(spec).when().get("/{firstparameter}/{secondparameter}/{thirdparameter}");
@@ -41,20 +42,6 @@ public class DummyGet01 extends DummyApiBaseUrl {
                 statusLine("HTTP/1.1 200 OK").
                 body("data.id",hasSize(24));
 
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
 
 }

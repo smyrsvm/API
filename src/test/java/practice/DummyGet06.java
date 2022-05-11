@@ -31,25 +31,10 @@ public class DummyGet06 extends DummyApiBaseUrl {
         spec.pathParams("firstparasmeter","api","secondparameter", "v1","thirdparameter", "employees");
 
         Response response= given().spec(spec).when().get("/{firstparasmeter}/{secondparameter}/{thirdparameter}");
-
         response.prettyPrint();
 
         response.then().assertThat().statusCode(200).contentType(ContentType.JSON).body("data.id", hasItems(3,7,11));
 
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

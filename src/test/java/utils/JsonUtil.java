@@ -10,15 +10,15 @@ public class JsonUtil {
     // From ObjectMapper class (Data type ObjectMapper) we create an object.
     // Since we want to reach it with class name, we make it static.
 
-
     // Normally we should create our object like below. There is no problem, it works.
+    // private static ObjectMapper mapper= new ObjectMapper();
     // But in this case our object is created after our JsonUtil class is loaded.
     // java creates this object after creating our JsonUtil class.
     // So if we want our object ready together with the class we need to use static block
     // which is used to initialize static objects.
     // If we type our initializing code inside static block, your object is ready together with the class
-    // Static block is executed everything before  the class
-    //private static ObjectMapper mapper= new ObjectMapper();
+    // Static block is executed  before everything in the class
+
 
     private static ObjectMapper mapper;
 
@@ -45,7 +45,7 @@ public class JsonUtil {
     // When i used this method, I should decide which Java Object will i turn this Json data;
     // to a Hashmap or Set or pojo so i declared it
 
-    public static <T> T convertJsonToJava(String json, Class<T> cls)  {
+    public static <T> T convertJsonToJava(String json, Class<T> cls)  { //De-Serialization
 
         T javaResult=null;
 
@@ -58,9 +58,10 @@ public class JsonUtil {
 
     }
 
+
     // 2nd Method: It is used to convert Java Object to JsonDAta. Serialization Method
     // everytime we want to get json so no need to make the method generic.
-    // we could make it String data type.No need to make selection it is json all Json
+    // we could make it String data type.No need to make selection it is all Json
 
     public static String convertJavaToJson(Object obj){
 
@@ -75,5 +76,7 @@ public class JsonUtil {
         return jsonResult;
 
     }
+
+
 
 }

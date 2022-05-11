@@ -19,7 +19,7 @@ public class DummyGet05 extends DummyApiBaseUrl {
      *      HTTP Status Code should be 200
      *  And
      *     response content Type is "application/json"
-     *And
+     *  And
      *    this user exists in the system
 
      *      "data":
@@ -41,7 +41,6 @@ public class DummyGet05 extends DummyApiBaseUrl {
         spec.pathParams("firstparameter", "api","secondparameter","v1","thirdparameter","employee","fourthparameter","6");
 
         Response response=given().spec(spec).when().get("/{firstparameter}/{secondparameter}/{thirdparameter}/{fourthparameter}");
-
         response.prettyPrint();
 
         response.
@@ -50,7 +49,7 @@ public class DummyGet05 extends DummyApiBaseUrl {
                 statusCode(200).
                 contentType(ContentType.JSON).
                 body("data.id",equalTo(6),"data.employee_name",equalTo("Brielle Williamson"),
-                        "data.employee_salary",372000,"data.employee_age",61,
+                        "data.employee_salary",equalTo(372000),"data.employee_age", equalTo(61),
                         "message",equalTo("Successfully! Record has been fetched."));
 
 
