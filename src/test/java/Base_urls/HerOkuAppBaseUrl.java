@@ -9,7 +9,7 @@ public class HerOkuAppBaseUrl {
         // I want it to be used by child classes, so it is protected.
 
         // RequestSpecification is an interface,so we can not make RequestSpecification object
-        // Interfaces can be data type, typed on the left but you cannot use it after ""new" keyword
+        // Interfaces can be data type, typed on the left but you cannot use it after "new" keyword
         // below RequestSpecification is not constructor, it is data type
 
     protected RequestSpecification spec;
@@ -24,8 +24,5 @@ public class HerOkuAppBaseUrl {
         spec= new RequestSpecBuilder().setBaseUri("https://restful-booker.herokuapp.com").build();
 
     }
-
-
-
 
 }

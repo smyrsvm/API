@@ -1,10 +1,12 @@
 package get_http_request_method;
 
 import Base_urls.HerOkuAppBaseUrl;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.equalTo;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class Get05 extends HerOkuAppBaseUrl {
@@ -39,18 +41,15 @@ public class Get05 extends HerOkuAppBaseUrl {
 
         // We should just add the pathparam, we do not need to add something for queryparam
 
-         Response response=  given().spec(spec).when().get("/{firstparameter}");
+         Response response=  given().spec(spec).contentType(ContentType.JSON).when().get("/{firstparameter}");
          response.prettyPrint();
 
          //4th: Make assertions
 
          response.then().assertThat().statusCode(200);
 
-         assertTrue(response.asString().contains("bookingId"));
-
+         assertTrue(response.asString().contains("bookingid"));
 
     }
-
-
 
 }

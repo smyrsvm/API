@@ -24,7 +24,7 @@ public class Get02 extends HerOkuAppBaseUrl {
         Server is "Cowboy"
      */
 
-    // Note; Path parameters are used to make resource smaller
+    // Note; Pathparameters are used to make resource smaller
 
     @Test //We are using Junit test annotation
     public void get02(){
@@ -39,6 +39,7 @@ public class Get02 extends HerOkuAppBaseUrl {
 
         spec.pathParams("first","booking","second",1001); // with this code i added booking and 1001 to baseurl
 
+
         // 2: Set the expected data
 
         // 3. Step: send request and get response
@@ -46,7 +47,6 @@ public class Get02 extends HerOkuAppBaseUrl {
         // We were making like this before--> Response response= given().when().get(url);
 
         Response response = given().spec(spec).when().get("/{first},/{second}");
-
         response.prettyPrint();
 
         //4. Assertions
@@ -73,7 +73,7 @@ public class Get02 extends HerOkuAppBaseUrl {
         // Expected data comes from test case, actual data comes from API
         // assertEquals() returns true (test passes) if the arguments match
         assertEquals("Cowboy", response.getHeader("Server"));
-    }
 
+    }
 
 }

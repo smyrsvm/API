@@ -9,15 +9,16 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class Get03 extends JsonPlaceHolderBaseUrl {
+
     /*
-        Given
-                https://jsonplaceholder.typicode.com/todos/23
-        When
+         Given
+            https://jsonplaceholder.typicode.com/todos/23
+         When
             User sends GET request to the URL
-        Then
+         Then
             HTTP Status Code should be 200
          And
-            Response format sholud be "application/json"
+            Response format should be "application/json"
          And
             "title" is "et itaque necessitatibus maxime molestiae qui quas velit"
          And
@@ -38,6 +39,7 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
         // 3. Send the request and get the response
 
         Response response= given().spec(spec).when().get("/{first}/{second}");
+
         response.prettyPrint();// just for the response body
 
         // 4.Make assertions
@@ -62,7 +64,6 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
                 body("id",equalTo(23));
 
 
-
         // Second way
         response.
                 then().
@@ -72,7 +73,6 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
                 body("title", equalTo("et itaque necessitatibus maxime molestiae qui quas velit"),
                         "completed", equalTo(false),
                         "userId",equalTo(23));
-        
 
     }
 

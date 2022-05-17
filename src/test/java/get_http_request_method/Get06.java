@@ -47,12 +47,12 @@ public class Get06 extends HerOkuAppBaseUrl {
         // 3rd Step: Send request and get response
 
         Response response=given().spec(spec).when().get("/{firstparameter},/{secondparameter}");
+
         response.prettyPrint();
 
         //4th Step: Make assertions
 
         // First way:
-
         response.
                 then().
                 assertThat().
@@ -66,6 +66,8 @@ public class Get06 extends HerOkuAppBaseUrl {
                         "bookingdates.checkout", equalTo("2020-02-20"),
                         "addtionalneeds", equalTo("Breakfast"));
 
+
+
         // 2nd way: Use JsonPath
         // JsonPath is a class having many useful methods to navigate inside the Json Data
 
@@ -75,7 +77,15 @@ public class Get06 extends HerOkuAppBaseUrl {
                 statusCode(200).
                 contentType(ContentType.JSON);
 
+        response.
+                then().
+                assertThat().
+                statusCode(200).
+                contentType(ContentType.JSON);
+
         // Create JsonPath object from response object
+
+        JsonPath json=response.jsonPath();
 
         JsonPath json= response.jsonPath();
 
@@ -86,7 +96,7 @@ public class Get06 extends HerOkuAppBaseUrl {
         assertEquals("Checkin date is not matching","2017-12-11",json.getString("bookingdates.checkin"));
         assertEquals("Checkout date is not matching","2020-02-20",json.getString("bookingdates.checkout"));
 
-        // Instead of getString(), getInt()... methods we can use get( method). But using specific methods is better.
+        // Instead of getString(), getInt()... methods, we can also use get( method). But using specific methods is better.
 
         // 3rd Way: Soft Assertion... It comes from TestNG
 
