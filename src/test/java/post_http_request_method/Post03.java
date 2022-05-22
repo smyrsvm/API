@@ -104,11 +104,12 @@ public class Post03 extends AgroMonitoringApiBaseUrl {
 
         //3rd Step: Send request and get response
 
-        Response response=given().spec(spec).contentType(ContentType.JSON).body(requestBodyMap).when().post("/{first}/{second}/{third}");
+        Response response= given().spec(spec).contentType(ContentType.JSON).body(requestBodyMap).when().post("/{first}/{second}/{third}");
         response.prettyPrint();
 
         //Add more key-values into the request body
         requestBodyMap.put("area",190.9484);
+        System.out.println(requestBodyMap);
 
         // Use GSON to convert response(Json) to a Map
 
@@ -125,6 +126,5 @@ public class Post03 extends AgroMonitoringApiBaseUrl {
 
 
     }
-
 
 }

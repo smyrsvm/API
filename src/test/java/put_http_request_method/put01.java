@@ -58,8 +58,7 @@ public class put01 extends JsonPlaceHolderBaseUrl {
 
          // 4th Step: Make assertions
 
-        //1st Way:
-        // We used response body...
+        //1st Way: We used response body...
 
         response.
                 then().
@@ -69,6 +68,7 @@ public class put01 extends JsonPlaceHolderBaseUrl {
 
 
         //2nd Way: Use GSON
+
         // GSON uses deserialization or serialization .
         // We will use here deserialization_converting response which is in Json data to java Object
 

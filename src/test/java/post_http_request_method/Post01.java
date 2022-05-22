@@ -51,7 +51,6 @@ public class Post01 extends HerOkuAppBaseUrl {
 
     @Test
     public void post01() {
-
         // 1st Step: Set the Url
 
         spec.pathParam("firstparameter","booking");
@@ -82,7 +81,6 @@ public class Post01 extends HerOkuAppBaseUrl {
         response.prettyPrint();
 
         // 4th: Make assertions
-
         Map<String,Object>actualData= response.as(HashMap.class);
         System.out.println(actualData);
 
@@ -92,9 +90,5 @@ public class Post01 extends HerOkuAppBaseUrl {
         assertEquals(expectedData.get("depositpaid"), ((Map) actualData.get("booking")).get("depositpaid"));
         assertEquals(expectedBookingDates.get("checkin"), ((Map)((Map) actualData.get("booking")).get("bookingdates")).get("checkin"));
         assertEquals(expectedBookingDates.get("checkout"), ((Map)((Map)actualData.get("booking")).get("bookingdates")).get("checkout"));
-
-
     }
-
-
 }

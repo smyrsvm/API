@@ -3,9 +3,10 @@ package pojos;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 // If our response in json format does not match with the pojo class we created,
-// then when we want to change this response json to the pojo classes we created, it alerts and does not accept.
+// then, when we want to change this response json to the pojo classes we created, it alerts and does not accept.
 // so we use @JsonIgnoreProperties(ignoreUnknown = true) --> ignore unknown variables
 @JsonIgnoreProperties(ignoreUnknown = true)
+
 public class JsonPlaceHolderPojo {
 
     //pojo: plain old java object
@@ -15,13 +16,13 @@ public class JsonPlaceHolderPojo {
     // By pojo class constructors I will create pojo objects,
     // and I will use them in expected and actual data
 
-    // Create private variables
+    // 1- Create private variables
 
     private Integer userID;
     private String title;
     private Boolean completed;
 
-    // Create constructors
+    // 2- Create constructors
 
     public JsonPlaceHolderPojo(Integer userID, String title, Boolean completed) {
         this.userID = userID;

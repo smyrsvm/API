@@ -1,6 +1,7 @@
 package post_http_request_method;
 
 import Base_urls.JsonPlaceHolderBaseUrl;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -45,11 +46,9 @@ public class PostWithPojo01 extends JsonPlaceHolderBaseUrl {
 
         spec.pathParam("firstparameter","todos");
 
-
         // 2nd Step: Set the request body
 
         JsonPlaceHolderPojo requestBody= new JsonPlaceHolderPojo(55,"Tidy your room",false);
-
 
         // 3rd Step: Send request and get response
 
@@ -64,9 +63,19 @@ public class PostWithPojo01 extends JsonPlaceHolderBaseUrl {
                                                         "completed",equalTo(requestBody.getCompleted()));
 
 
+
+       response.then().assertThat().statusCode(201).body("userId",equalTo(requestBody.getUserID(),))
+
+
         //2nd Way: De-Serialization
 
         JsonPlaceHolderPojo actualData = response.as(JsonPlaceHolderPojo.class);
+
+       //GSON complains here, because in response there also comes an additional "id"value
+        // which is not in my POJO, so GSON can not convert or having problem in converting response to pojo.
+        // The structures are not the same here. We go to Pojo class and at the top of the class we use,
+        // @JsonIgnoreProperties(ignoreUnknown = true)
+        // Hey Java if you dont know some variables in Json, ignore them, ignore unknown variables.
 
         assertEquals(requestBody.getUserID(), actualData.getUserID());
         assertEquals(requestBody.getTitle(),actualData.getTitle());

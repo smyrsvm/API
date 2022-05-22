@@ -20,7 +20,8 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
        They should communicate each other but communication is not possible with different data types
 
        We have two options
-       i) Convert json to Java Object==> De-Serialization -->we will mostly use this in getting json from API and using it in JAVA
+       i) Convert json to Java Object==> De-Serialization -->
+       we will mostly use this in getting json from API and using it in JAVA
        ii) Convert Java Object to Json==> Serialization
 
        For Serialization and De-Serialization, we have 2 options
@@ -72,7 +73,6 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
 
         // The data comes from test case is expectedData, and the data comes from API is actual data
 
-
         Map<String,Object> expectedData= new HashMap<>();
 
         expectedData.put("userId",1);
@@ -84,7 +84,6 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
         expectedData.put("Server","cloudflare");
         System.out.println(expectedData);
 
-
         //3- Send the request and get the response
 
         Response response= given().spec(spec).when().get("/{first}/{second}");
@@ -92,6 +91,7 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
 
         // By using GSON(as() method) we are able to convert Json Data which is coming from API to Java Object
         // as() method comes from GSON
+
         Map<String,Object> actualData= response.as(HashMap.class);
         System.out.println(actualData);
 

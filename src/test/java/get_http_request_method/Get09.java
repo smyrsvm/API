@@ -39,12 +39,13 @@ public class Get09 extends HerOkuAppBaseUrl {
 
         spec.pathParams("first","booking","second",1);
 
+
+
         // 2nd Step: Set the expected data
 
         Map<String, String> expectedBookingDates= new HashMap<>();
         expectedBookingDates.put("checkin","2021-12-30");
         expectedBookingDates.put("checkout","2022-01-04");
-
 
         Map<String,Object> expectedData= new HashMap<>();
         expectedData.put("firstname","Mark");
@@ -72,7 +73,7 @@ public class Get09 extends HerOkuAppBaseUrl {
         assertEquals(expectedData.get("additionalneeds"),actualData.get("additionalneeds"));
 
 
-        /** Our actualData as Map is below. In our Map keys` data type are String, values` data types are Object */
+        /** Our actualData as Map is below. In our Map keys` data types are String, values` data types are Object */
 
         // Map<String,Object> actualData= response.as(HashMap.class)
 
@@ -89,7 +90,6 @@ public class Get09 extends HerOkuAppBaseUrl {
 
         assertEquals(expectedBookingDates.get("checkin"),((Map)actualData.get("bookingdates")).get("checkin"));
         assertEquals(expectedBookingDates.get("checkout"),((Map)actualData.get("bookingdates")).get("checkout"));
-
 
     }
 

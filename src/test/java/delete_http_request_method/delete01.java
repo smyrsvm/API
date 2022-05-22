@@ -33,14 +33,14 @@ public class delete01 extends JsonPlaceHolderBaseUrl {
 
         //1st Step: Set the url
 
-        spec.pathParams("firstparameter","todos","secondparameter","198");
+        spec.pathParams("firstparameter","todos","secondparameter",198);
 
         //2nd Step: Set the expected data
 
         Map<String,Object> expectedMap= new HashMap<>();
         System.out.println(expectedMap);
 
-        //3rd : Sen the request and get the response
+        //3rd : Send the request and get the response
 
         Response response=given().spec(spec).contentType(ContentType.JSON).when().delete("/{firstparameter}/{secondparameter}");
         response.prettyPrint();
@@ -54,8 +54,5 @@ public class delete01 extends JsonPlaceHolderBaseUrl {
         assertEquals(expectedMap,actualMap);
         assertTrue(actualMap.size()==0);// If we use this, we do not have to create expectedMap
 
-
     }
-
-
 }

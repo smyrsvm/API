@@ -35,6 +35,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         //1-Set the url
 
         spec.pathParam("first", "todos");
+        spec.pathParam("first","todos");
 
         // 2.Set the expected data
         // 3.Send request and get response
@@ -47,11 +48,13 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
 
         response.then().assertThat().statusCode(200);
 
+
         /** 2) Print all ids greater than 190 on the console */
 
         JsonPath json= response.jsonPath();
-        List<Integer> idList=  json.getList("findAll{it.id>190}.id");// groovy Language, works under java
+        List<Integer> idList=  json.getList("findAll{it.id>190}.id");
 
+        // groovy Language, works under java
         // it.id --> like---> this.name
         // this--> means from the class which you are in, get the name variable
         // "this" which is a constructor has parenthesis.
@@ -72,7 +75,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
          Collections.sort(userIdList);// Elements are sorted in ascending order
 
         //assertEquals("",4,userIdList.get(userIdList.size()-1));
-        // It is wrong when we write it like above. Because assertEquals works with Object, Object
+        // It is wrong when we write it like above. Because assertEquals works with (Object, Object).
         //Actual value is integer, and expected value of 4 is accepted as Object; so it complains.
         // Then we should convert that to Integer.Explicit casting we are making
 
@@ -92,7 +95,4 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         assertTrue(titlesList.stream().anyMatch(t->t.equals("delectus aut autem")));  ;
 
     }
-
-
-
 }

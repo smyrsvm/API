@@ -27,7 +27,7 @@ public class AgroMonitoringTestData {
         Map<String,Object> geo_json= new HashMap<>();
         geo_json.put("type","Feature");
         geo_json.put("properties",properties);
-        geo_json.put("geometry",geometrySetUp()); // Here we are used the method we created above "geometrySetUp()".It returns map.
+        geo_json.put("geometry",geometrySetUp()); // Here we used the method we created above "geometrySetUp()".It returns map.
         return  geo_json;
 
     }

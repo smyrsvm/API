@@ -1,6 +1,7 @@
 package post_http_request_method;
 
 import Base_urls.JsonPlaceHolderBaseUrl;
+import io.cucumber.java.hu.Ha;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -42,7 +43,7 @@ public class Post02 extends JsonPlaceHolderBaseUrl {
 
         //1st Step: Set the url
 
-        spec.pathParams("firstparameter","todos");
+        spec.pathParam("firstparameter","todos");
 
         //2nd Step: Set the expected data
 

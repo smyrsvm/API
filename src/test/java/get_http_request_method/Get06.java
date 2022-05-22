@@ -66,16 +66,8 @@ public class Get06 extends HerOkuAppBaseUrl {
                         "bookingdates.checkout", equalTo("2020-02-20"),
                         "addtionalneeds", equalTo("Breakfast"));
 
-
-
         // 2nd way: Use JsonPath
         // JsonPath is a class having many useful methods to navigate inside the Json Data
-
-        response.
-                then().
-                assertThat().
-                statusCode(200).
-                contentType(ContentType.JSON);
 
         response.
                 then().
@@ -86,8 +78,6 @@ public class Get06 extends HerOkuAppBaseUrl {
         // Create JsonPath object from response object
 
         JsonPath json=response.jsonPath();
-
-        JsonPath json= response.jsonPath();
 
         assertEquals("First name is not matching","Mary",json.getString("firstname"));
         assertEquals("Last name is not matching","Jones",json.getString("lastname"));
@@ -113,9 +103,8 @@ public class Get06 extends HerOkuAppBaseUrl {
 
             // iii) Do not forget to use assertAll()
             // If you dont use assertAll() method, your assertions are not executed
-            // and if your assertions arent executed, you will get "test passed" green thick.it is dangerous
+            // and if your assertions are not executed, you will get "test passed" green thick.it is dangerous
             softAssert.assertAll();
-
 
     }
 
