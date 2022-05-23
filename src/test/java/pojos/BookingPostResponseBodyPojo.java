@@ -4,7 +4,8 @@ package pojos;
 
 public class BookingPostResponseBodyPojo {
     private Integer bookingid;
-    private BookingPojo booking; // Class names are also data types.Integer is a class and data type
+    private BookingPojo booking; // Class names are also data types.Integer is a class and data .
+                                // BookingPojo is a class name and data type
 
 
     public BookingPostResponseBodyPojo(Integer bookingid, BookingPojo booking) {

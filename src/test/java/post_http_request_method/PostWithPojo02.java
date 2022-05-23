@@ -37,7 +37,7 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
     Then
         HTTP Status Code should be 200
     And
-            response body should be like;
+        response body should be like;
 
                     {"firstname": Mary,
                             "lastname": "Smith",
@@ -67,6 +67,7 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
         // 1st Step: Set the url
 
         spec.pathParam("first","booking");
+        spec.pathParam("first","booking");
 
         // 2nd Step: Set request body
 
@@ -81,6 +82,9 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
 
         Response response= given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{first}");
         response.prettyPrint();
+
+        //After you get the response; check how it comes. For example; here, a new json came with outer nest that made my response structure different
+        // from the pojo class format i created.
 
         // 4th Step; Do the assertions
 
@@ -103,6 +107,7 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
     public void postWithPojo03 (){
 
         // We used two requests in this test method. We created data and read it.
+        // There is no need to create a new POJO here.
 
         // 1st Step: Set the url
 
@@ -116,15 +121,16 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
 
         // 3rd Step: Send request and get response
 
-        Response response1= given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{first}");
-        response1.prettyPrint();
+        Response response= given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{first}");
+        response.prettyPrint();
 
         // 4th Step: Do the assertions
 
         //Note: After creating new data in Database, you will need "bookingid" to be able to use GET Method
-        // So you need to get "bookingid" from the response of post request.
+        // So you need to get "bookingid" from the response of post request. We get it with JsonPath.
+        // JsonPath is good when we need a specific data from response.
 
-        JsonPath json= response1.jsonPath();
+        JsonPath json= response.jsonPath();
         Integer bookingId=json.getInt("bookingid");
         System.out.println(bookingId);
 
@@ -132,13 +138,14 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
         // For get request we need two parameters
 
         spec.pathParams("first","booking","second",bookingId);
+        //This bookingid is updated everytime so i did not put a fixed number
 
         // Send the GET Request and get response
 
         Response response2=given().spec(spec).when().get("/{first}/{second}");
         response2.prettyPrint();
 
-        //Do the assertion
+        // Do the assertion
 
         // We use here GET response body
         // Convert response2 to POJO. GET response format is BookingPojo format
@@ -153,6 +160,50 @@ public class PostWithPojo02 extends HerOkuAppBaseUrl {
         assertEquals(requestBody.getBookingdates().getCheckin(),actualData.getBookingdates().getCheckin());
         assertEquals(requestBody.getBookingdates().getCheckout(),actualData.getBookingdates().getCheckout());
         assertEquals(requestBody.getAdditionalneeds(),actualData.getAdditionalneeds());
+    }
+
+    @Test
+    public void postWithPojo04 (){
+        // Although this test was deleted since the API did not let us to delete any data, i did not delete.
+
+        // We used three requests in this test method.
+        // We created data then deleted it and then read it.
+
+        // 1st Step: Set the url
+
+        spec.pathParam("first","booking");
+
+        // 2nd Step: Set request body
+
+        BookingDatesPojo bookingDates= new BookingDatesPojo("2016-02-05","2021-01-16");
+        BookingPojo requestBody= new BookingPojo("Suleyman","Alptekin",999,true,bookingDates,"Breakfast with white tea, Dragon juice");
+        System.out.println(requestBody);
+
+        // 3rd Step: Send request and get response
+
+        Response response= given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{first}");
+        response.prettyPrint();
+
+        JsonPath json= response.jsonPath();
+        Integer bookingId=json.getInt("bookingid");
+        System.out.println(bookingId);
+
+        // Set the url for Delete Request
+
+        spec.pathParams("first","booking","second",bookingId);
+        //This bookingid is updated everytime so i did not put a fixed number
+
+        // Send the Delete Request and get response
+
+        Response response2=given().spec(spec).when().delete("/{first}/{second}");
+        response2.prettyPrint();
+
+        // Set the url for GET Request
+        spec.pathParams("first","booking","second",bookingId);
+
+        // Send the GET Request
+        Response response3=given().spec(spec).contentType(ContentType.JSON).when().get("/{first}/{second}");
+        response3.prettyPrint();
     }
 
 }

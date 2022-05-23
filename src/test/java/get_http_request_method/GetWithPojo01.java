@@ -37,6 +37,9 @@ public class GetWithPojo01 extends HerOkuAppBaseUrl {
     @Test
     public void GetWithPojo01 (){
 
+       // In postman, I checked first how the response comes. There are two nested Json,
+        // so I should create two Pojo classes; named BookingDatesPojo and BookingPojo.
+
         //1st Step: Set the url
         spec.pathParams("firstparameter","booking","secondparameter",2);
 
@@ -44,7 +47,7 @@ public class GetWithPojo01 extends HerOkuAppBaseUrl {
 
         BookingDatesPojo bookingDates = new BookingDatesPojo("2021-08-10","2021-12-19");
         BookingPojo expectedData= new BookingPojo("Mark","Jones",278,true,bookingDates,"Breakfast");
-        System.out.println(expectedData); //By toString() method we can see the booking object, without it we could just see the reference number
+        System.out.println(expectedData); //By toString() method we can see the booking object; without it, we could just see the reference number
 
         //3rd Step: Send request and get response
 
@@ -64,11 +67,9 @@ public class GetWithPojo01 extends HerOkuAppBaseUrl {
         assertEquals("Additional needs are not matching",expectedData.getAdditionalneeds(),actualData.getAdditionalneeds());
         assertEquals("Check in dates are not matching",expectedData.getBookingdates().getCheckin(),actualData.getBookingdates().getCheckin());
         assertEquals("Check out dates are not matching",expectedData.getBookingdates().getCheckout(),actualData.getBookingdates().getCheckout());
-
-
     }
 
-    // While you are working in real life, dont use sout, prettyPrint and blanks.Push like below
+    // While you are working in real life, do not use sout, prettyPrint and blanks. Push like below
     //The blanks etc. use memory
 
     @Test
@@ -87,5 +88,4 @@ public class GetWithPojo01 extends HerOkuAppBaseUrl {
         assertEquals("Check in dates are not matching",expectedData.getBookingdates().getCheckin(),actualData.getBookingdates().getCheckin());
         assertEquals("Check out dates are not matching",expectedData.getBookingdates().getCheckout(),actualData.getBookingdates().getCheckout());
     }
-
 }

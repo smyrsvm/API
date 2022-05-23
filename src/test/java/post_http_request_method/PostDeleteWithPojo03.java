@@ -83,9 +83,6 @@ public class PostDeleteWithPojo03 extends JsonPlaceHolderBaseUrl {
 
         assertTrue(response2Map.size()==0);
         assertTrue(response2Map.isEmpty());
-
-
     }
-
 
 }

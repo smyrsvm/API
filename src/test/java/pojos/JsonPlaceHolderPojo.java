@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 // If our response in json format does not match with the pojo class we created,
 // then, when we want to change this response json to the pojo classes we created, it alerts and does not accept.
-// so we use @JsonIgnoreProperties(ignoreUnknown = true) --> ignore unknown variables
+// so we use JsonIgnoreProperties annotation
+// @JsonIgnoreProperties(ignoreUnknown = true) --> ignore unknown variables
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class JsonPlaceHolderPojo {
@@ -68,7 +69,6 @@ public class JsonPlaceHolderPojo {
     }
 
     // Generate toString()
-
 
     @Override
     public String toString() {

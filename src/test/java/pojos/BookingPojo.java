@@ -2,7 +2,7 @@ package pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class BookingPojo {
 
@@ -21,6 +21,7 @@ public class BookingPojo {
 
 
     public BookingPojo(String firstname, String lastname, Integer totalprice, Boolean depositpaid, BookingDatesPojo bookingdates, String additionalneeds) {
+        // We removed super(); from here.
         this.firstname = firstname;
         this.lastname = lastname;
         this.totalprice = totalprice;

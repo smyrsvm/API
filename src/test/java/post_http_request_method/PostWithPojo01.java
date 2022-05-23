@@ -62,27 +62,20 @@ public class PostWithPojo01 extends JsonPlaceHolderBaseUrl {
                                                     "title", equalTo(requestBody.getTitle()),
                                                         "completed",equalTo(requestBody.getCompleted()));
 
-
-
-       response.then().assertThat().statusCode(201).body("userId",equalTo(requestBody.getUserID(),))
-
-
         //2nd Way: De-Serialization
 
         JsonPlaceHolderPojo actualData = response.as(JsonPlaceHolderPojo.class);
 
        //GSON complains here, because in response there also comes an additional "id"value
         // which is not in my POJO, so GSON can not convert or having problem in converting response to pojo.
-        // The structures are not the same here. We go to Pojo class and at the top of the class we use,
+        //  We go to Pojo class and at the top of the class we use,
         // @JsonIgnoreProperties(ignoreUnknown = true)
-        // Hey Java if you dont know some variables in Json, ignore them, ignore unknown variables.
+        // Hey Java if you do not know some variables in Json, ignore them, ignore unknown variables.
 
         assertEquals(requestBody.getUserID(), actualData.getUserID());
         assertEquals(requestBody.getTitle(),actualData.getTitle());
         assertEquals(requestBody.getCompleted(),actualData.getCompleted());
 
-
     }
-
 
 }
