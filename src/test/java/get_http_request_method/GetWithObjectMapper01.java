@@ -37,17 +37,18 @@ public class GetWithObjectMapper01 extends JsonPlaceHolderBaseUrl {
             //1St step: Set the url
             spec.pathParams("firstparameter","todos","secondparameter",198);
 
+
             //2nd step: Set the expected data
 
                 // 1st Way: Not recommended
 
-                /** String expecteddata="{\n" +
+                /* String expectedData="{\n" +
                         "\"userId\": 10,\n" +
                         "\"title\": \"quis eius est sint explicabo\",\n" +
                         "\"completed\": false,\n" +
                         "\"id \":198\n" +
                         "}";
-                HashMap<String,Object>  expectedDataMap=JsonUtil.convertJsonToJava(expectedData, HashMap.class);
+                HashMap<String,Object> expectedDataMap = JsonUtil.convertJsonToJava(expectedData, HashMap.class);
                  For the second parameter HashMap.class we could also write Pojo class */
 
             // We put our json data in double quotes. The thing which you put in double quotes is String.
@@ -57,6 +58,10 @@ public class GetWithObjectMapper01 extends JsonPlaceHolderBaseUrl {
 
             JsonPlaceHolderTestData expected= new JsonPlaceHolderTestData();
             String expectedData=expected.expectedDataInString(10,"quis eius est sint explicabo",true);
+
+            JsonPlaceHolderTestData expected= new JsonPlaceHolderTestData();
+            String expectedData=expected.expectedDataInString(10,"dksjdks",true);
+
 
             // My method uses 2 parameters.First one is json second is Java Object
             HashMap<String,Object>  expectedDataMap= JsonUtil.convertJsonToJava(expectedData, HashMap.class);

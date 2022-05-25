@@ -31,6 +31,8 @@ public class PostDeleteWithPojo03 extends JsonPlaceHolderBaseUrl {
                 { }
      */
 
+    Integer id;
+
 
     @Test
     public void postDeleteWithPojo03 (){
@@ -45,6 +47,7 @@ public class PostDeleteWithPojo03 extends JsonPlaceHolderBaseUrl {
         spec.pathParam("firstparameter","todos");
 
         // 2nd Step: Set the request body
+
         JsonPlaceHolderPojo requestBody= new JsonPlaceHolderPojo(55,"Tidy your room",false);
         System.out.println(requestBody);
 
@@ -63,7 +66,7 @@ public class PostDeleteWithPojo03 extends JsonPlaceHolderBaseUrl {
         // In every post creation, there could be a new "id".So we made it dynamic.
 
         JsonPath json= response.jsonPath();
-        Integer id=json.getInt("id");
+        id=json.getInt("id");
 
         // Set the url for delete request
         spec.pathParams("firstparameter","todos","secondparameter",id); //"https://jsonplaceholder.typicode.com/todos/201"
@@ -84,5 +87,4 @@ public class PostDeleteWithPojo03 extends JsonPlaceHolderBaseUrl {
         assertTrue(response2Map.size()==0);
         assertTrue(response2Map.isEmpty());
     }
-
 }
