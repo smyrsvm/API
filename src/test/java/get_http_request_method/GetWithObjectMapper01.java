@@ -59,10 +59,6 @@ public class GetWithObjectMapper01 extends JsonPlaceHolderBaseUrl {
             JsonPlaceHolderTestData expected= new JsonPlaceHolderTestData();
             String expectedData=expected.expectedDataInString(10,"quis eius est sint explicabo",true);
 
-            JsonPlaceHolderTestData expected= new JsonPlaceHolderTestData();
-            String expectedData=expected.expectedDataInString(10,"dksjdks",true);
-
-
             // My method uses 2 parameters.First one is json second is Java Object
             HashMap<String,Object>  expectedDataMap= JsonUtil.convertJsonToJava(expectedData, HashMap.class);
 
@@ -71,9 +67,9 @@ public class GetWithObjectMapper01 extends JsonPlaceHolderBaseUrl {
              Response response= given().spec(spec).when().get("/{firstparameter}/{secondparameter}");
              response.prettyPrint();
 
-
              HashMap<String,Object> actualDataMap=JsonUtil.convertJsonToJava(response.asString(),HashMap.class);
              System.out.println(actualDataMap);
+
 
              //4th Step: Do the assertions
 

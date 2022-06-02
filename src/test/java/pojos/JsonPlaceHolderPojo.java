@@ -43,7 +43,7 @@ public class JsonPlaceHolderPojo {
         return userID;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserId(Integer userID) {
 
         this.userID = userID;
     }

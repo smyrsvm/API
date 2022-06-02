@@ -40,9 +40,9 @@ public class JsonPlaceHolderTestData {
 
     }
 
-    public String expectedDataInString (Integer userId, String title, Boolean completed){ // I created this for ObjectMapper
+    public String expectedDataInString (Integer userID, String title, Boolean completed){ // I created this for ObjectMapper
 
-        String expectedData="{\n" + " \"userId\": " +userId+ ",\n" + " \"title\": "+ title+ ",\n" + " \"completed\": "+completed+ ",\n" + " }";
+        String expectedData="{\n" + " \"userId\": " +userID+ ",\n" + " \"title\": "+ title+ ",\n" + " \"completed\": "+completed+ ",\n" + " }";
 
         return expectedData;
 
