@@ -68,3 +68,5 @@ public class PostWithObjectMapperAndPojo01 extends JsonPlaceHolderBaseUrl {
 
     }
 }
+
+

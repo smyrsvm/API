@@ -6,11 +6,11 @@ import org.junit.Before;
 
 public class HerOkuAppBaseUrl {
     //Create an object in RequestSpecification data type
-        // I want it to be used by child classes, so it is protected.
-
-        // RequestSpecification is an interface,so we can not make RequestSpecification object
-        // Interfaces can be data type, typed on the left but you cannot use it after "new" keyword
-        // below RequestSpecification is not constructor, it is data type
+    // we do not say "we are creating RequestSpecification object"
+    // because RequestSpecification is an interface,so we can not make RequestSpecification object
+    // Interfaces can be data type, typed on the left but you cannot use it after "new" keyword
+    // below RequestSpecification is not constructor, it is data type
+    // I want it to be used by child classes, so it is protected.
 
     protected RequestSpecification spec;
 

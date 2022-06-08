@@ -53,7 +53,7 @@ public class JsonUtil {
         try {
             javaResult=mapper.readValue(json,cls); // readValue method gets json and converts it to java object.
         } catch (IOException e) {
-            System.out.println("Json could not be converted to Java Object"+ e.getMessage());
+            System.out.println("Json could not be converted to Java Object "+ e.getMessage());
         }
         return javaResult;
 
@@ -80,7 +80,7 @@ public class JsonUtil {
         try {
             jsonResult=mapper.writeValueAsString(obj);
         } catch (IOException e) {
-            System.out.println("Java Object could not be converted to Json"+ e.getMessage());
+            System.out.println("Java Object could not be converted to Json "+ e.getMessage());
         }
         return jsonResult;
 
