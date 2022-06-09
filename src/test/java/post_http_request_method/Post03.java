@@ -101,7 +101,6 @@ public class Post03 extends AgroMonitoringApiBaseUrl {
         AgroMonitoringTestData requestBody= new AgroMonitoringTestData();
         Map<String,Object>requestBodyMap= requestBody.requestBodySetUp();
 
-
         //3rd Step: Send request and get response
 
         Response response= given().spec(spec).contentType(ContentType.JSON).body(requestBodyMap).when().post("/{first}/{second}/{third}");

@@ -35,7 +35,6 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         //1-Set the url
 
         spec.pathParam("first", "todos");
-        spec.pathParam("first","todos");
 
         // 2.Set the expected data
         // 3.Send request and get response
@@ -76,7 +75,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
 
         //assertEquals("",4,userIdList.get(userIdList.size()-1));
         // It is wrong when we write it like above. Because assertEquals works with (Object, Object).
-        //Actual value is integer, and expected value of 4 is accepted as Object; so it complains.
+        // Actual value is integer, and expected value of 4 is accepted as Object; so it complains.
         // Then we should convert that to Integer.Explicit casting we are making
 
         assertEquals("",(Integer)4,userIdList.get(userIdList.size()-1));

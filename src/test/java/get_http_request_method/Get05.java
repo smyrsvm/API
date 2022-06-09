@@ -12,14 +12,14 @@ import static org.testng.AssertJUnit.assertTrue;
 public class Get05 extends HerOkuAppBaseUrl {
     /*
      Given
-            "https://restful-booker.herokuapp.com/booking"
+          "https://restful-booker.herokuapp.com/booking"
      When
            User sends a request to the Url
      Then
-          Status Code is 200
+           Status Code is 200
      And
-        Among the data there should be someone whose first name is "Mark" and
-        last name is "Ericsson"
+            Among the data there should be someone whose first name is "Mark" and
+            last name is "Ericsson"
 
      */
 
