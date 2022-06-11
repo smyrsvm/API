@@ -65,6 +65,9 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         /** Assert that there are 10 ids greater than 190 */
 
         assertEquals("idlist doesnt have expected size",10,idList.size());
+        assertEquals("idlist doesnt have expected size",10,json.getList("findAll{it.id>190}.id").size());
+        // I added the second.
+
 
         /** 3) Print all userIds less than 5 on the console
          assert that maximum userId less than 5 is 4 */
