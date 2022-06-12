@@ -84,7 +84,8 @@ public class Get11 extends GoRestApiBAseUrl {
         //List<Integer> idList=  json.getList("findAll{it.id>190}.id"); another type
 
         // The number of females are greater than the number of males
-        // We did not use Groovy language, so it is long
+        // 1st Way: Wit for loop
+
         List<String> genderList= json.getList("data.gender");
         System.out.println(genderList);
 
@@ -97,6 +98,16 @@ public class Get11 extends GoRestApiBAseUrl {
         }
 
         assertTrue(femaleCounter>genderList.size()-femaleCounter);
+
+        //With Groovy
+
+       List<String> femaleList=    json.getList("data.findAll{it.gender=\"female\"}.gender");
+       // Inside the Groovy; look at the gender, if it is female select it
+       System.out.println(femaleList.size());
+
+        List<String> maleList=    json.getList("data.findAll{it.gender=\"male\"}.gender");
+        System.out.println(maleList.size());
+        assertTrue(femaleList.size()>maleList.size());
 
         // The number of active status is more than 5
         // First Way: Use loop
